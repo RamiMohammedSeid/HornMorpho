@@ -235,8 +235,7 @@ def anal_file(language, infile, outfile=None,
 
 def gen(language, root, features=[], pos=None, guess=False, phon=False,
         roman=False, non_roman=True):
-    '''Generate a word, given stem/root and features (replacing those in default).
-    If pos is specified, check only that POS; otherwise, try all in order until one succeeeds.
+    '''Generate a word, Updated by rami mohammed.
 
     @param root:     root or stem of a word
     @type  root:     string (roman)
@@ -260,14 +259,13 @@ def gen(language, root, features=[], pos=None, guess=False, phon=False,
             output = posmorph.gen(root, update_feats=features,
                                   postproc=is_not_roman, guess=guess)
             if output:
-                print(output[0][0])
+
                 return output[0][0]
         else:
             for posmorph in list(morf.values()):
                 output = posmorph.gen(root, update_feats=features,
                                       postproc=is_not_roman, guess=guess)
                 if output:
-                    print(output[0][0])
                     return output[0][0]
         print("This word can't be generated!")
 
