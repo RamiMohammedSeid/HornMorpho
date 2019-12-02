@@ -261,14 +261,14 @@ def gen(language, root, features=[], pos=None, guess=False, phon=False,
                                   postproc=is_not_roman, guess=guess)
             if output:
                 print(output[0][0])
-                return
+                return output[0][0]
         else:
             for posmorph in list(morf.values()):
                 output = posmorph.gen(root, update_feats=features,
                                       postproc=is_not_roman, guess=guess)
                 if output:
                     print(output[0][0])
-                    return
+                    return output[0][0]
         print("This word can't be generated!")
 
 def phon_word(lang_abbrev, word, gram=False, raw=False,
